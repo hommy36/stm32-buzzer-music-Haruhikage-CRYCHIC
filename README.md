@@ -25,18 +25,20 @@
 - **音量**：修改 `TIM12->CCR2` 改变占空比（`volume` 参数 0~100）。
 - **节拍**：`Buzzer_Set_Frequency(freq, duration, delay, volume)` 播放指定时长的音符，音符间留有 `delay` 静音间隔避免连音。
 
-`Core/Src/Buzzer.c` 内置 A0~C8 全音域频率常量表（含升降号），该蜂鸣器有效音域为 **G3~A7**。
+`Core/Src/Buzzer.c` 内置 A0\~C8 全音域频率常量表（含升降号），该蜂鸣器有效音域为 **G3\~A7**。
 
 ## 构建
 
-需要 `arm-none-eabi-gcc` 与 Ninja：
+本项目使用 **CLion + CMake** 开发。CLion 的 STM32 交叉编译环境（ArmGCC、OpenOCD）搭建可参考这篇教程：[波特律动 — CLion 开发 STM32 环境配置](https://docs.baud-dance.com/docs/stm32/CLion/use/)。
+
+环境装好后，可直接在 CLion 中选择 `Debug` / `Release` preset 构建，或使用命令行：
 
 ```bash
 cmake --preset Debug
 cmake --build --preset Debug
 ```
 
-也有 `Release` preset 可用。生成的固件位于 `build/Debug/`（或 `build/Release/`）下，通过 SWD 烧录。
+生成的固件位于 `build/Debug/`（或 `build/Release/`）下，通过 SWD 烧录。
 
 ## 添加新曲目
 
